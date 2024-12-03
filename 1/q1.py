@@ -9,7 +9,7 @@ lefts = []
 rights = []
 full_dict = {}
 final_count = 0
-
+similarity_score = 0
 
 for element in lines:
     parts = element.split() 
@@ -36,4 +36,14 @@ for key, value in full_dict.items():
         distance = int(value) - int(key)
     final_count += distance
 
+for i in lefts:
+    amt = 0
+    for j in rights:
+        if int(i) == int(j):
+            amt += 1
+    
+    similarity_score += int(i) * amt
+
+
 print(f"Total distance is: {final_count}")
+print(similarity_score)
